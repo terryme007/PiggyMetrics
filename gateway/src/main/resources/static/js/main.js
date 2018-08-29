@@ -289,6 +289,8 @@ function checkCurrency(currency) {
             break;
         case "EUR": currencyText="&euro;";
             break;
+        case "CNY": currencyText="￥";
+            break;
     }
     return currencyText
 }
@@ -906,6 +908,8 @@ function fadeStatistic() {
         case "EUR": $("#rublesign").css({"background-position": "-386px 0"});
             break;
         case "USD": $("#rublesign").css({"background-position": "-354px 0"});
+            break;
+        case "CNY": $("#rublesign").css({"background-position": "-354px 0"});
             break;
     }
     $("#savingsvalue").autoNumeric('set', savings.freeMoney);

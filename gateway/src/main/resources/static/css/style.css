@@ -2514,10 +2514,10 @@ input#deposit:checked + label.button:after, input#capitalization:checked + label
 	right: -18px;
 	top: -15%;
 	position: absolute;
-	width: 170px;
+	width: 230px;
 	height: 42px;
 }
-#rubcurr, #eurcurr, #usdcurr {
+#rubcurr, #eurcurr, #usdcurr,#cnycurr {
 	vertical-align: top;
 	text-align: center;
 	position: relative;
@@ -2531,7 +2531,7 @@ input#deposit:checked + label.button:after, input#capitalization:checked + label
 	margin-right: 7px;
 	line-height: 43px;
 }
-#rubcurr:hover, #eurcurr:hover, #usdcurr:hover {
+#rubcurr:hover, #eurcurr:hover, #usdcurr:hover, #cnycurr:hover {
 	border: 2px solid #f6f6f6;
 }
 .currunchecked {

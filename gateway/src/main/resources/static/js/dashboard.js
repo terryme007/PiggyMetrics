@@ -77,6 +77,8 @@ function getConverted(column) {
 				break;
 			case "USD": column[key].converted = (column[key].amount * global.usd).toFixed(3);
 				break;
+            case "CNY": column[key].converted = (column[key].amount * global.cny).toFixed(3);
+                break;
 		}
 		switch (column[key].period) {
 			case "MONTH": break;
@@ -84,6 +86,8 @@ function getConverted(column) {
 				break;
 			case "DAY": column[key].converted = (column[key].converted * 30.41666667).toFixed(3);
 				break;
+            case "WEEK": column[key].converted = (column[key].converted * 52.14286).toFixed(3);
+                break;
 			case "QUARTER": column[key].converted = (column[key].converted / 3).toFixed(3);
 				break;
 			case "YEAR": column[key].converted = (column[key].converted / 12).toFixed(3);
@@ -95,6 +99,8 @@ function getConverted(column) {
 				break;
 			case "USD": column[key].converted = (column[key].converted / global.usd).toFixed(3);
 				break;
+            case "CNY": column[key].converted = (column[key].converted / global.cny).toFixed(3);
+                break;
 		}
 		if (column == incomes) {
 			if (firstitem == undefined) {firstitem = key; $("#incomeslider").data("firstitem", key); }
@@ -421,7 +427,7 @@ function initStatisticPage() {
 	}
 
 	// Change currency stuff
-	$("#rubcurr, #eurcurr, #usdcurr").removeClass("currchecked");
+	$("#rubcurr, #eurcurr, #usdcurr, #cnycurr").removeClass("currchecked");
 	switch (user.checkedCurr) {
 		case "RUB": $(".curr").html(" Rub ").data("curr", " rub."); $(".savings-circle-currency").html(" Rubles "); $("#rubcurr").addClass("currchecked");
 			break;
@@ -429,6 +435,8 @@ function initStatisticPage() {
 			break;
 		case "USD": $(".curr, .savings-circle-currency").html(" USD ").data("curr", " $"); $("#usdcurr").addClass("currchecked");
 			break;
+        case "CNY": $(".curr, .savings-circle-currency").html(" CNY ").data("curr", " ￥"); $("#cnycurr").addClass("currchecked");
+            break;
 	}
 
 	if (incomesSumMonth > expensesSumMonth) {
@@ -561,9 +569,12 @@ $(".currunchecked").click(function() {
 	else if (this.id == "usdcurr") {
 		user.checkedCurr = "USD";
 	}
-	else {
+	else if (this.id == "rubcurr") {
 		user.checkedCurr = "RUB";
 	}
+    else {
+        user.checkedCurr = "CNY";
+    }
 	runConvert();
 
 	initStatisticPage();

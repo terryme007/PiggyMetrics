@@ -10,7 +10,7 @@ security:
 spring:
   data:
     mongodb:
-      host: localhost
+      host: 116.196.118.169
       username: user
       password: admin
       database: piggymetrics

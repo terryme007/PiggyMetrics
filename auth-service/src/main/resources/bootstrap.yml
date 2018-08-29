@@ -3,7 +3,12 @@ spring:
     name: auth-service
   cloud:
     config:
-      uri: http://config:8888
+      uri: http://localhost:8888
       fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
+      password: admin
       username: user
+
+NOTIFICATION_SERVICE_PASSWORD: admin
+STATISTICS_SERVICE_PASSWORD: admin
+ACCOUNT_SERVICE_PASSWORD: admin
+MONGODB_PASSWORD: admin

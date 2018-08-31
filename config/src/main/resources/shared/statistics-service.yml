@@ -3,7 +3,7 @@ security:
     client:
       clientId: statistics-service
       clientSecret: admin
-      accessTokenUri: http://localhost:5000/uaa/oauth/token
+      accessTokenUri: http://10.0.1.134:5000/uaa/oauth/token
       grant-type: client_credentials
       scope: server
 

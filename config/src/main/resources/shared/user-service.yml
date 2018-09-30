@@ -1,0 +1,22 @@
+security:
+  oauth2:
+    client:
+      clientId: user-service
+      clientSecret: admin
+      accessTokenUri: http://localhost:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: user
+      password: admin
+      database: piggymetrics
+      port: 27017
+
+server:
+  servlet:
+    context-path: /user
+  port: 3000

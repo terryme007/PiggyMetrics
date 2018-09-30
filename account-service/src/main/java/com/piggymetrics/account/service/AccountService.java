@@ -1,34 +1,21 @@
 package com.piggymetrics.account.service;
 
-import com.piggymetrics.account.domain.Account;
-import com.piggymetrics.account.domain.User;
+import com.sunyard.sunfintech.core.exception.BusinessException;
+import com.piggymetrics.account.dao.entity.AccountSubjectInfo;
+
+import java.util.List;
 
 public interface AccountService {
-
-	/**
-	 * Finds account by given name
-	 *
-	 * @param accountName
-	 * @return found account
-	 */
-	Account findByName(String accountName);
 
 	/**
 	 * Checks if account with the same name already exists
 	 * Invokes Auth Service user creation
 	 * Creates new account with default parameters
 	 *
-	 * @param user
+	 * @param platcust
 	 * @return created account
 	 */
-	Account create(User user);
+	public void createAccount(String platcust) throws BusinessException;
 
-	/**
-	 * Validates and applies incoming account updates
-	 * Invokes Statistics Service update
-	 *
-	 * @param name
-	 * @param update
-	 */
-	void saveChanges(String name, Account update);
+	public List<AccountSubjectInfo> queryAccount(String platcust)throws BusinessException;
 }

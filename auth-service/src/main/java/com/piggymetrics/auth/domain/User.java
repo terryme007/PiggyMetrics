@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "users")
@@ -14,6 +15,12 @@ public class User implements UserDetails {
 	private String username;
 
 	private String password;
+
+	private String platcust;
+
+	private Date create_time;
+
+	private Date update_time;
 
 	@Override
 	public String getPassword() {
@@ -56,5 +63,29 @@ public class User implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public String getPlatcust() {
+		return platcust;
+	}
+
+	public void setPlatcust(String platcust) {
+		this.platcust = platcust;
+	}
+
+	public Date getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
+	}
+
+	public Date getUpdate_time() {
+		return update_time;
+	}
+
+	public void setUpdate_time(Date update_time) {
+		this.update_time = update_time;
 	}
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="C:\Users\terry\.m2\repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar" />
+	<context id="my" targetRuntime="MyBatis3"><!--MyBatis3 MyBatis3Simple -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!--<plugin type="com.sunyard.plugins.MysqlPaginationPlugin" />-->
+
+		 
+		<commentGenerator type="com.piggymetrics.account.plugins.MyCommentGenerator"/>
+<!-- 		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator> -->
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.0.1.134:3306/sun_ftdm" userId="root" password="Sunyard88" />
+
+		<javaModelGenerator targetPackage="com.piggymetrics.account.dao.entity"
+			targetProject="D:\My_Project\PiggyMetrics2\piggy-model\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.piggymetrics.account.dao.mapper.xml"
+			targetProject="D:\My_Project\PiggyMetrics2\piggy-model\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.piggymetrics.account.dao.mapper"
+			targetProject="D:\My_Project\PiggyMetrics2\piggy-model\src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+        <!--<table tableName="account_subject_info" domainObjectName="AccountSubjectInfo" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<property name="useActualColumnNames" value="true" />-->
+        <!--</table>-->
+
+		<table tableName="acc_openconfig" domainObjectName="AccOpenconfig" enableCountByExample="true"
+			   enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+			   selectByExampleQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+</generatorConfiguration>

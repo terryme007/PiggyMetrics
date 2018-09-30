@@ -59,6 +59,11 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .withClient("notification-service")
                 .secret(env.getProperty("NOTIFICATION_SERVICE_PASSWORD"))
                 .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("server")
+                .and()
+                .withClient("user-service")
+                .secret(env.getProperty("USER_SERVICE_PASSWORD"))
+                .authorizedGrantTypes("client_credentials", "refresh_token")
                 .scopes("server");
         // @formatter:on
     }

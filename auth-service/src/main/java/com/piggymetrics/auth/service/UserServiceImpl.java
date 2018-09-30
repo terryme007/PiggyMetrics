@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -25,10 +26,14 @@ public class UserServiceImpl implements UserService {
 	public void create(User user) {
 
 		Optional<User> existing = repository.findById(user.getUsername());
-		existing.ifPresent(it-> {throw new IllegalArgumentException("user already exists: " + it.getUsername());});
+//		existing.ifPresent(it-> {throw new IllegalArgumentException("user already exists: " + it.getUsername());});
+		if(existing.isPresent()){
+			return;
+		}
 
 		String hash = encoder.encode(user.getPassword());
 		user.setPassword(hash);
+		user.setCreate_time(new Date());
 
 		repository.save(user);
 

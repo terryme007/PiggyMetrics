@@ -61,6 +61,14 @@
 			<version>2.2.0</version>
 			<scope>test</scope>
 		</dependency>
+
+
+		<!-- 内部依赖 -->
+		<dependency>
+			<groupId>com.sunyard.sunfintech</groupId>
+			<artifactId>ftdm-common</artifactId>
+			<version>${piggy-common.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

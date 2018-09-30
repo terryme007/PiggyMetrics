@@ -3,7 +3,7 @@ security:
     client:
       clientId: notification-service
       clientSecret: admin
-      accessTokenUri: http://10.0.1.134:5000/uaa/oauth/token
+      accessTokenUri: http://localhost:5000/uaa/oauth/token
       grant-type: client_credentials
       scope: server
 
@@ -28,7 +28,7 @@ backup:
 spring:
   data:
     mongodb:
-      host: 116.196.118.169
+      host: localhost
       username: user
       password: admin
       database: piggymetrics

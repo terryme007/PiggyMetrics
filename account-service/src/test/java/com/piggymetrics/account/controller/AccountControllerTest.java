@@ -46,32 +46,6 @@ public class AccountControllerTest {
 	}
 
 	@Test
-	public void shouldGetAccountByName() throws Exception {
-
-		final Account account = new Account();
-		account.setName("test");
-
-		when(accountService.findByName(account.getName())).thenReturn(account);
-
-		mockMvc.perform(get("/" + account.getName()))
-				.andExpect(jsonPath("$.name").value(account.getName()))
-				.andExpect(status().isOk());
-	}
-
-	@Test
-	public void shouldGetCurrentAccount() throws Exception {
-
-		final Account account = new Account();
-		account.setName("test");
-
-		when(accountService.findByName(account.getName())).thenReturn(account);
-
-		mockMvc.perform(get("/current").principal(new UserPrincipal(account.getName())))
-				.andExpect(jsonPath("$.name").value(account.getName()))
-				.andExpect(status().isOk());
-	}
-
-	@Test
 	public void shouldSaveCurrentAccount() throws Exception {
 
 		Saving saving = new Saving();

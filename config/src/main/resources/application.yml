@@ -9,7 +9,12 @@ spring:
   security:
     user:
       password: admin
+  rabbitmq:
+    host: 10.0.1.134
+    username: ftdm
+    password: ftdm@sunyard
+    port: 5672
+    virtual-host: /ftdm
 
 server:
   port: 8888
-
